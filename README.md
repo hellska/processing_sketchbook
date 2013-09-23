@@ -1,4 +1,4 @@
-= cosb
+== Processing Sketchbook
 
 * https://github.com/hellska/processing_sketchbook
 
