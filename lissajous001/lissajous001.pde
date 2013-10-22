@@ -18,18 +18,20 @@ void setup() {
  stroke(0); 
  osc= new OscP5(this, 12000);
  sc= new NetAddress("127.0.0.1", 57120);
+ setLissajousVar();
  lissajous();
 }
 
 void draw() {
 //   background(255);
 //   lissajous();
+
 }
 
 void lissajous() {
 background(255);
-Afreq=0.03;
-Bfreq=0.08;
+// Afreq=0.03;
+// Bfreq=0.08;
 // oscMessageSend(Afreq, Bfreq);
 // int alpha = 1;
 // noFill();
@@ -53,6 +55,10 @@ Bfreq=0.08;
  // curveVertex(firstx, firsty);
  endShape();
 }
+void setLissajousVar() {
+  Afreq=0.03;
+  Bfreq=0.08;
+}
 
 void keyReleased() {
   if (key == 'f') {
@@ -65,5 +71,13 @@ void keyReleased() {
   if (key == 's') {
     oscMessageSend(Afreq, Bfreq); 
     println(Afreq+" - "+Bfreq);
+  }
+  if (key == 'u'){
+     Afreq += 0.01;
+     lissajous();
+  }
+  if (key == 'j'){
+     Afreq -= 0.01;
+     lissajous();
   }
 }
