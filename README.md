@@ -23,7 +23,7 @@ Download the code and copy it into your processing sketchbook
 
 GPL 2.0
 
-Copyright (c) 2012 Nicola Bernardini
+Copyright (c) 2012 Daniele Scarano
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
