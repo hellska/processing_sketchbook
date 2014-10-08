@@ -14,13 +14,13 @@ int maxX = 200;
 int maxY = 200;
 
 // create 3 array to store pixel RGB values
-float[] img_red;
+// float[] img_red;
 // float[] img_green;
 // float[] img_blue;
 
-// float[] img_red = new float[maxX * maxY];
-// float[] img_green = new float[maxX * maxY];
-// float[] img_blue = new float[maxX * maxY];
+float[] img_red = new float[maxX * maxY];
+float[] img_green = new float[maxX * maxY];
+float[] img_blue = new float[maxX * maxY];
 
 
 void setup() {
@@ -51,20 +51,22 @@ void draw() {
 
 // read pixels data and stores RGB values into array
 void readColumn() {
-  float[] img_red = new float[inImg.width * inImg.height];
+//  float[] img_red = new float[inImg.width * inImg.height];
   outImg.loadPixels();
   println("#### Current pixels array: "+outImg.pixels.length);
+  // this randomly select an imagecolumn
   int col = int(random(outImg.height));
   // debug purpose print
   println("Selected Column: "+col+" - parsed line number: "+(outImg.height-1));
   println("image width: "+outImg.width+" - image heigth: "+outImg.height);
   for (int r = 0;r < int(outImg.height-1);r++) {
     img_red[r] = red(outImg.pixels[col * r + 1]);
-//    println("Pixel "+(col * r)+" red: "+red(outImg.pixels[col * r]));
-//    img_red.add(r, red(outImg.pixels[col * r]));
+    img_green[r] = green(outImg.pixels[col * r + 1]);
+    img_blue[r] = blue(outImg.pixels[col * r + 1]);
   }
-    println("First element: "+img_red[0]+" - last element: "+img_red[399]);
-    floatListMessage(img_red);
+  redListMessage(img_red);
+  greenListMessage(img_green);
+  blueListMessage(img_blue);
 }
 // image manipulation functions
 void rescale() {

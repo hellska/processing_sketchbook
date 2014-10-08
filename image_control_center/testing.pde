@@ -1,3 +1,6 @@
 void mousePressed() {
-  readColumn(); 
-}
+  redListMessage(img_red);
+} 
+
+
+

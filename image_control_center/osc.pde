@@ -21,17 +21,26 @@ void sendNoteCluster(OscMessage outgoingMessage) {
 
 // osc message creation
 //  create a message with an arrai of elements
-void floatListMessage(float[] inList) {
-  println(inList[34]+" - "+inList.length); 
-  OscMessage floatList = new OscMessage("/col");
-//  for (int i = 0;i<150;i++) {
-//    floatList.add(inList[i]);
-//  }
-  floatList.add(inList[34]);
-//  floatList.add(111);  
-//  oscP5.send(floatList, supercollider);
-  oscP5.send(floatList, supercollider);
-//  oscP5.send(floatList, sc2);
-//  oscP5.send(floatList, myself);
-  
+void redListMessage(float[] inList) {
+  float[] outList = new float[outImg.height]; 
+  OscMessage floatList = new OscMessage("/red");
+  arrayCopy(inList, outList, outImg.height);
+  floatList.add(outList);
+  oscP5.send(floatList, supercollider);  
+}
+
+void greenListMessage(float[] inList) {
+  float[] outList = new float[outImg.height]; 
+  OscMessage floatList = new OscMessage("/green");
+  arrayCopy(inList, outList, outImg.height);
+  floatList.add(outList);
+  oscP5.send(floatList, supercollider);  
+}
+
+void blueListMessage(float[] inList) {
+  float[] outList = new float[outImg.height];
+  OscMessage floatList = new OscMessage("/blue");
+  arrayCopy(inList, outList, outImg.height);
+  floatList.add(outList);
+  oscP5.send(floatList, supercollider);  
 }
