@@ -10,8 +10,8 @@ float whratio,hwratio,rescaleX,rescaleY;
 // set screen resolution values to correct the image size
 // according to the screen size.
 // function using those variables: rescale()
-int maxX = 200;
-int maxY = 200;
+int maxX = 400;
+int maxY = 400;
 
 // create 3 array to store pixel RGB values
 // float[] img_red;
@@ -21,7 +21,7 @@ int maxY = 200;
 float[] img_red = new float[maxX * maxY];
 float[] img_green = new float[maxX * maxY];
 float[] img_blue = new float[maxX * maxY];
-
+  
 
 void setup() {
   inImg = loadImage("LeftBrainRightBrain.jpg");
