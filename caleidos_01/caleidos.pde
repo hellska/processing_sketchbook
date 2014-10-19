@@ -18,8 +18,8 @@ void caleidos() {
     } else {
       pointX = int(random(deltaX)+mouseX)-deltaX/2;
       pointY = int(random(deltaY)+mouseY)-deltaY/2;
-      //println("noooooooooo");r
     }
+    //println("Punto Uno: "+pointX+","+pointY);m
     // get the interested image part
     imageCaleid[0] = inputImg.get(pointX, pointY, deltaX, deltaY); 
     image(imageCaleid[0], int(random(width)), int(random(height)));
@@ -33,4 +33,11 @@ void mouseReleased() {
 void keyReleased() {
   if (key == 'r') rrimage = true;
   if (key == 'm') rrimage = false;
+
+  println("Delta time: "+deltaT);
+}
+
+void keyPressed() {
+  if (key == 't') deltaT += 50;
+  if (key == 'y') deltaT -= 50;
 }

@@ -13,6 +13,12 @@ float whratio,hwratio,rescaleX,rescaleY;
 int maxX = 400;
 int maxY = 400;
 
+int startTred;
+int deltaTred;
+int startTblue;
+int deltaTblue;
+
+
 // create 3 array to store pixel RGB values
 // float[] img_red;
 // float[] img_green;
@@ -38,15 +44,28 @@ void setup() {
   sc2 = new NetAddress("192.168.1.6",57120);
   myself = new NetAddress("127.0.0.1",12000);
   
-  readColumn();
-
+//  readColumn();
+  startTred = millis();
+  startTblue = millis();
+  // Time between each list is send
+  deltaTred = 10000;
+  deltaTblue = 100;
 }
 
 void draw() {
   image(outImg,0,0);
   outImg.loadPixels();
-
-  
+  int now = millis();
+  if (now >= startTred+deltaTred) {
+    readColumn();
+    redListMessage(img_red);
+    startTred = millis();
+  }
+  if (now >= startTblue+deltaTblue) {
+    readColumn();
+    blueListMessage(img_blue);
+    startTblue = millis();
+  }
 }
 
 // read pixels data and stores RGB values into array
@@ -64,9 +83,9 @@ void readColumn() {
     img_green[r] = green(outImg.pixels[col * r + 1]);
     img_blue[r] = blue(outImg.pixels[col * r + 1]);
   }
-  redListMessage(img_red);
-  greenListMessage(img_green);
-  blueListMessage(img_blue);
+//  redListMessage(img_red);
+//  greenListMessage(img_green);
+//  blueListMessage(img_blue);
 }
 // image manipulation functions
 void rescale() {
