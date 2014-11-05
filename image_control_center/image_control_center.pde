@@ -30,7 +30,9 @@ float[] img_blue = new float[maxX * maxY];
   
 
 void setup() {
-  inImg = loadImage("LeftBrainRightBrain.jpg");
+  // inImg = loadImage("LeftBrainRightBrain.jpg");
+  // inImg = loadImage("Bos8B.jpg");
+  inImg = loadImage("BOS CALO.jpg");
   rescale();
   outImg = inImg;
   size(inImg.width,inImg.height);
